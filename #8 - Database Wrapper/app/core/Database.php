@@ -1,7 +1,5 @@
 <?php
 
-use function PHPSTORM_META\type;
-
 class Database
 {
     // DB_HOST, dll didapat dari file config.php

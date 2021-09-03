@@ -49,7 +49,6 @@ class App
     public function parseURL()
     {
         if (isset($_GET['url'])) {
-
             // rtrim : digunakan untuk menghilangkan tanda slash pada akhir url
             $url = rtrim($_GET['url'], '/');
 
