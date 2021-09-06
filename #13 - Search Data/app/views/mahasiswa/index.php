@@ -1,0 +1,171 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+
+    <!-- Search -->
+    <div class="row">
+        <div class="col-lg-6 mb-3">
+            <form action="<?= BASEURL; ?>/mahasiswa/search" method="POST">
+                <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Masukkan nama" name="keyword" id="keyword">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit" id="tombolCari">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+
+            <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#formModal">
+                Tambah Data
+            </button>
+
+            <h3>Daftar Mahasiswa</h3>
+            <ul class="list-group">
+                <?php foreach ($data['mhs'] as $mhs) : ?>
+                    <li class="list-group-item">
+                        <?= $mhs["nama"]; ?>
+                        <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id']; ?>" class="badge badge-danger float-right ml-1" onclick="return confirm('Apakah anda ingin mengahpus data?')">Hapus</a>
+
+                        <a href="#" class="badge badge-success float-right ml-1" data-toggle="modal" data-target="#editModal<?= $mhs['id'] ?>">Edit</a>
+
+                        <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id']; ?>" class="badge badge-primary float-right ml-1">Detail</a>
+
+                    </li>
+
+            </ul>
+
+            <!-- Modal Edit Data -->
+            <div class="modal fade" id="editModal<?= $mhs['id'] ?>" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modal">Edit Data Mahasiswa</h5>
+                            <button type="button" class="close" data-dismiss="editModal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <!-- action : akan diarahkan ke method tambah yang dibuat di : controller/mahasiswa -->
+                            <form action="<?= BASEURL; ?>/mahasiswa/edit/<?= $mhs['id'] ?>" method="POST">
+                                <input type="hidden" class="form-control" id="nama" name="id" value="<?= $mhs['id']; ?>">
+
+                                <div class="form-group">
+                                    <label for="nama">Nama</label>
+                                    <input type="text" class="form-control" id="nama" name="nama" value="<?= $mhs['nama']; ?>">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nim">NIM</label>
+                                    <input type="number" class="form-control" id="nim" name="nim" value="<?= $mhs['nim'] ?>">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" value="<?= $mhs['email'] ?>">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="jurusan">Jurusan</label>
+                                    <select class="form-control" id="jurusan" name="jurusan">
+                                        <option value="Sistem Informasi">Sistem Informasi</option>
+                                        <option value="Sistem Komputer">Sistem Komputer</option>
+                                        <option value="Teknik Komputer">Teknik Komputer</option>
+                                        <option value="Teknik Jaringan">Teknik Jaringan</option>
+                                        <option value="Teknik Pemrograman">Teknik Pemrograman</option>
+                                    </select>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success" name="edit">Edit Data</button>
+                        </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End Modal Edit Data -->
+
+
+        <?php endforeach; ?>
+
+        <!-- Modal Add Data -->
+        <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="judulModal">Tambah Data Mahasiswa</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- action : akan diarahkan ke method tambah yang dibuat di : controller/mahasiswa -->
+                        <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="POST">
+
+                            <div class="form-group">
+                                <label for="nama">Nama</label>
+                                <input type="text" class="form-control" id="nama" name="nama">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nim">NIM</label>
+                                <input type="number" class="form-control" id="nim" name="nim">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="jurusan">Jurusan</label>
+                                <select class="form-control" id="jurusan" name="jurusan">
+                                    <option value="Sistem Informasi">Sistem Informasi</option>
+                                    <option value="Sistem Komputer">Sistem Komputer</option>
+                                    <option value="Teknik Komputer">Teknik Komputer</option>
+                                    <option value="Teknik Jaringan">Teknik Jaringan</option>
+                                    <option value="Teknik Pemrograman">Teknik Pemrograman</option>
+                                </select>
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Tambah Data</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal Add Data -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+</div>
