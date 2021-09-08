@@ -1,6 +1,8 @@
 <?php
 
-class Dashboard extends Controller
+namespace oop\app\controllers;
+
+class Dashboard extends \oop\app\core\Controller
 {
     public function index()
     {
@@ -12,7 +14,7 @@ class Dashboard extends Controller
         ];
 
         $this->view('templates/header', $data);
-        $this->view('dashboard/index');
+        $this->view('admin/dashboard/index');
         $this->view('templates/footer');
     }
 }

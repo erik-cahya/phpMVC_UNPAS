@@ -1,5 +1,7 @@
 <?php
 
+namespace oop\app\core;
+
 class App
 {
     protected $controller = 'Dashboard';
@@ -24,7 +26,8 @@ class App
         }
 
         require_once '../app/controllers/' . $this->controller . '.php';
-        $this->controller = new $this->controller;
+        $core2 = '\\oop\\app\\controllers\\' . $this->controller;
+        $this->controller = new $core2;
 
         // METHOD  
         if (isset($url[1])) {
