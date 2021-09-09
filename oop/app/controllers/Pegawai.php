@@ -23,9 +23,11 @@ class Pegawai extends \oop\app\core\Controller
     public function detail()
     {
         $data['judul'] = "Detail Pegawai";
-        $data['linkDashboard'] = '';
-        $data['linkPegawai'] = 'active';
-        $data['linkKehadiran'] = '';
+        $data['link'] = [
+            'dashboard' => '',
+            'pegawai' => 'active',
+            'kehadiran' => ''
+        ];
 
         $this->view('templates/header', $data);
         $this->view('admin/pegawai/detail');

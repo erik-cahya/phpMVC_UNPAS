@@ -12,6 +12,7 @@ class Controller
     public function model($model)
     {
         require_once '../app/models/' . $model . '.php';
+
         $model2 = '\\oop\\app\\models\\' . $model;
         return new $model2;
     }

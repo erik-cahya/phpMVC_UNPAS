@@ -2,6 +2,9 @@
 
 namespace oop\app\core;
 
+use PDO;
+use PDOException;
+
 class Database
 {
 

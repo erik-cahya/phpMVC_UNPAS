@@ -16,7 +16,6 @@
 
 <!-- Main content -->
 <section class="content">
-
     <!-- Default box -->
     <div class="card card-solid">
         <div class="card-body pb-0">
@@ -45,7 +44,7 @@
 
 
                     <div class="col-8 text-right mb-5">
-                        <!-- Tambah Data Pegawai ------------------------------------------------------ -->
+                        <!-- Tambah Data Pegawai -->
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" title="Tambah data Baru">
                             <i class="fas fa-user-plus px-2"></i>
                         </button>
@@ -65,7 +64,6 @@
 
                                 <!-- Modal Content -->
                                 <div class="card-body">
-
                                     <form action="" method="POST" enctype="multipart/form-data">
 
                                         <input type="hidden" name="level" value="1">
@@ -109,7 +107,6 @@
                                             </div>
                                         </div>
                                         <!-- End Jabatan -->
-
                                 </div>
 
                                 <!-- End Modal Content -->
@@ -133,15 +130,12 @@
             <div class="row">
 
                 <!-- Card Content Data Pegawai -->
-
-
-
                 <?php foreach ($data['query'] as $qry) : ?>
                     <div class="col-lg-4 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
                         <div class="card bg-light d-flex flex-fill">
                             <!-- Nama Jabatan -->
                             <div class="card-header text-muted border-bottom-0 text-capitalize">
-                                Senior Developer
+                                <?= $qry['nama_jabatan']; ?>
                             </div>
                             <div class="card-body pt-0">
                                 <div class="row">
@@ -149,13 +143,13 @@
                                         <!-- Nama Pegawai -->
                                         <h2 class="lead font-weight-bold"><?= $qry['nama_pegawai']; ?></h2>
                                         <!-- NIK -->
-                                        <p class="text-muted text-sm">190030209</p>
+                                        <p class="text-muted text-sm"><?= $qry['nik']; ?></p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
 
                                             <!-- Address -->
-                                            <li class="small mb-3"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Jln. Tukad Badung XIV No. 4</li>
+                                            <li class="small mb-3"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> <?= $qry['alamat']; ?></li>
                                             <!-- Phone -->
-                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: 089522648527</li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: <?= $qry['no_hp']; ?></li>
 
                                         </ul>
                                     </div>
@@ -180,152 +174,11 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-
-
-
-
-
-
-
-                <div class="col-lg-4 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                    <div class="card bg-light d-flex flex-fill">
-                        <!-- Nama Jabatan -->
-                        <div class="card-header text-muted border-bottom-0 text-capitalize">
-                            Senior Developer
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="col-7">
-                                    <!-- Nama Pegawai -->
-                                    <h2 class="lead font-weight-bold">Erik Cahya Pradana</h2>
-                                    <!-- NIK -->
-                                    <p class="text-muted text-sm">190030209</p>
-                                    <ul class="ml-4 mb-0 fa-ul text-muted">
-
-                                        <!-- Address -->
-                                        <li class="small mb-3"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Jln. Tukad Badung XIV No. 4</li>
-                                        <!-- Phone -->
-                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: 089522648527</li>
-
-                                    </ul>
-                                </div>
-                                <div class="col-5 text-center">
-                                    <!-- Avatar -->
-                                    <img src="<?= BASEURL; ?>/dist/img/avatar.png" alt="user-avatar" class="img-circle img-fluid" width="150px">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-right">
-                                <!-- Delete  -->
-                                <a href="#" class="btn btn-sm bg-danger" onclick="return confirm('Apakah Anda Ingin Menghapus Data ?');">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                                <!-- View Profile -->
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                    <div class="card bg-light d-flex flex-fill">
-                        <!-- Nama Jabatan -->
-                        <div class="card-header text-muted border-bottom-0 text-capitalize">
-                            Senior Developer
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="col-7">
-                                    <!-- Nama Pegawai -->
-                                    <h2 class="lead font-weight-bold">Erik Cahya Pradana</h2>
-                                    <!-- NIK -->
-                                    <p class="text-muted text-sm">190030209</p>
-                                    <ul class="ml-4 mb-0 fa-ul text-muted">
-
-                                        <!-- Address -->
-                                        <li class="small mb-3"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Jln. Tukad Badung XIV No. 4</li>
-                                        <!-- Phone -->
-                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: 089522648527</li>
-
-                                    </ul>
-                                </div>
-                                <div class="col-5 text-center">
-                                    <!-- Avatar -->
-                                    <img src="<?= BASEURL; ?>/dist/img/avatar.png" alt="user-avatar" class="img-circle img-fluid" width="150px">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-right">
-                                <!-- Delete  -->
-                                <a href="#" class="btn btn-sm bg-danger" onclick="return confirm('Apakah Anda Ingin Menghapus Data ?');">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                                <!-- View Profile -->
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-                    <div class="card bg-light d-flex flex-fill">
-                        <!-- Nama Jabatan -->
-                        <div class="card-header text-muted border-bottom-0 text-capitalize">
-                            Senior Developer
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="col-7">
-                                    <!-- Nama Pegawai -->
-                                    <h2 class="lead font-weight-bold">Erik Cahya Pradana</h2>
-                                    <!-- NIK -->
-                                    <p class="text-muted text-sm">190030209</p>
-                                    <ul class="ml-4 mb-0 fa-ul text-muted">
-
-                                        <!-- Address -->
-                                        <li class="small mb-3"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Jln. Tukad Badung XIV No. 4</li>
-                                        <!-- Phone -->
-                                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: 089522648527</li>
-
-                                    </ul>
-                                </div>
-                                <div class="col-5 text-center">
-                                    <!-- Avatar -->
-                                    <img src="<?= BASEURL; ?>/dist/img/avatar.png" alt="user-avatar" class="img-circle img-fluid" width="150px">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-right">
-                                <!-- Delete  -->
-                                <a href="#" class="btn btn-sm bg-danger" onclick="return confirm('Apakah Anda Ingin Menghapus Data ?');">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                                <!-- View Profile -->
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- End Card Content -->
-
-
-
             </div>
         </div>
         <!-- /.card-body -->
-
     </div>
     <!-- /.card -->
-
 </section>
 <!-- /.content -->
