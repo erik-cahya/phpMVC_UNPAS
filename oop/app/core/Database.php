@@ -22,7 +22,7 @@ class Database
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbName;
 
         $option = [
-            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_PERSISTENT => true, // digunakan untuk menjaga koneksi pada database
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ];
 

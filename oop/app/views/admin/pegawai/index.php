@@ -30,21 +30,20 @@
 
                     <!-- Search Data -->
                     <div class="col-3">
-                        <form action=" " method="POST">
+                        <form action="<?= BASEURL; ?>/pegawai/search" method="POST">
                             <div class="input-group">
-                                <input type="search" class="form-control form-control-md" placeholder="Ketikkan Nama/NIK Pegawai" name="keyword" autofocus autocomplete="off">
+                                <input type="search" class="form-control" placeholder="Masukkan nama / NIK" name="keyword" id="keyword">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-md btn-default" name="search">
-                                        <i class="fa fa-search"></i>
-                                    </button>
+                                    <button class="btn btn-primary" type="submit" id="tombolCari">Search</button>
                                 </div>
                             </div>
                         </form>
+
                     </div>
 
 
+                    <!-- Tambah Data Pegawai -->
                     <div class="col-8 text-right mb-5">
-                        <!-- Tambah Data Pegawai -->
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" title="Tambah data Baru">
                             <i class="fas fa-user-plus px-2"></i>
                         </button>
@@ -70,7 +69,7 @@
 
                                         <!-- NIK -->
                                         <div class="form-group row">
-                                            <label for="nik" class="col-sm-2 col-form-label">NIK</label>
+                                            <label for="nik" class="col-sm-2 col-form-label"> NIK </label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="nik" name="nik" placeholder="NIK" required>
                                             </div>
@@ -100,15 +99,16 @@
                                             <label for="id_jabatan" class="col-sm-2 col-form-label">Jabatan</label>
                                             <div class="col-sm-10">
                                                 <select class="form-control" id="id_jabatan" name="id_jabatan">
-                                                    <option value="IT Support">IT Support</option>
-                                                    <option value="Marketing">Marketing</option>
-                                                    <option value="Human Resource Dev">Human Resource Dev</option>
+
+                                                    <?php foreach ($data['jabatan'] as $qry) : ?>
+                                                        <option value="<?= $qry["nama_jabatan"] ?>"><?= $qry["nama_jabatan"] ?></option>
+                                                    <?php endforeach; ?>
+
                                                 </select>
                                             </div>
                                         </div>
                                         <!-- End Jabatan -->
                                 </div>
-
                                 <!-- End Modal Content -->
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -159,6 +159,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="card-footer">
                                 <div class="text-right">
                                     <!-- Delete  -->
@@ -166,11 +167,12 @@
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <!-- View Profile -->
-                                    <a href="<?= BASEURL; ?>/pegawai/detail" class="btn btn-sm btn-primary">
+                                    <a href="<?= BASEURL; ?>/pegawai/detail/<?= $qry['nik'] ?>" class="btn btn-sm btn-primary">
                                         <i class="fas fa-user"></i> View Profile
                                     </a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 <?php endforeach; ?>
